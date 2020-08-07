@@ -1,0 +1,38 @@
+{
+  "name": "coding-challenge-doodle",
+  "version": "0.0.1",
+  "description": "Coding Challenge for Principal Dev",
+  "main": "index.js",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
+    "@reduxjs/toolkit": "^1.4.0",
+    "luxon": "^1.24.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1"
+  },
+  "scripts": {
+    "start": "parcel serve ./src/app/index.html",
+    "build": "parcel build ./src/app/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfuentes/coding-Challenge-Doodle.git"
+  },
+  "author": "Sebastian Fuentes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfuentes/coding-Challenge-Doodle/issues"
+  },
+  "homepage": "https://github.com/sfuentes/coding-Challenge-Doodle#readme"
+}
