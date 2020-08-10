@@ -24,23 +24,18 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Message(UserName = "No One", Message = "Nothing to see", sendDate = "2011-10-05T14:48:00.000Z") {
+export default function NoMessages(UserName = "No One", Message = "Nothing to see", sendDate = "2011-10-05T14:48:00.000Z") {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
         <Card className={classes.root}>
             <CardContent>
-                <Typography variant="h5" component="h5">
-                    {UserName}
-                </Typography>
 
                 <Typography variant="body2" component="p">
-                   {Message}
+                    I'm afraid to admit, that there no messages for you by now.
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                    {DateTime.toLocaleString(sendDate)}
-                </Typography>
+
             </CardContent>
             <CardActions>
                 <Button size="small">Nothing Yet</Button>

@@ -2,25 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import AppComponent from './AppCompontent';
+import {fetchAllMessages} from '../Messages/actions';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Login from '../LogIn';
+import Container from '@material-ui/core/Container';
 
 
 class AppContainer extends React.Component {
     static propTypes = {
-        tickets: PropTypes.array,
-        closeTicket: PropTypes.func
+
     };
+
+    componentDidMount() {
+       const { isUserKnown, userName } = this.props;
+
+    }
+
     render() {
-        const {tickets} = this.props;
+        const { isUserKnown } = this.props;
 
-        return (
-            <AppComponent tickets={tickets} closeTicket={this.handleCloseTicket} blockTicket={this.handleBlockTicket}/>
-        );
-
+        if(isUserKnown){
+            return <AppComponent />;
+        }
+        return <Login />;
     }
 }
 
 const mapStateToProps = (state) => ({
-
+    isUserKnown : state.user.name
 });
 
 const mapDispatchToProps = (dispatch) => ({

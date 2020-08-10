@@ -1,0 +1,6 @@
+export default {
+    apiHost : 'https://chatty.kubernetes.doodle-test.com', //should be provided by ENV ...
+    apiPath : '/api/chatty/v1.0/',
+    apiToken : "sJqWKN2z86pc" //should be provided by ENV ...
+
+}

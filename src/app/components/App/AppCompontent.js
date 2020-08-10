@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import {Paper} from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Messages from '../Messages';
+import WriteMessage from '../WriteMessage';
 
-const styles = (theme) => ({});
+const theme = createMuiTheme({}); // needs to go to Layout
+
+const styles = ({theme}) =>{};
 
 class AppComponent extends React.Component {
 
@@ -19,12 +23,14 @@ class AppComponent extends React.Component {
         const {classes} = this.props;
 
         return (
-            <Container component="main" maxWidth="md">
-                <CssBaseline/>
-                <Paper>
-                    <CircularProgress/>
-                </Paper>
-            </Container>
+            <ThemeProvider theme={theme}>
+                <Container component="main" maxWidth="md">
+                    <CssBaseline/>
+                    <Messages />
+
+                    <WriteMessage />
+                </Container>
+            </ThemeProvider>
         );
     }
 }

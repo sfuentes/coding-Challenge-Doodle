@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/styles';
 
 import Message from './components/Message';
+import NoMessages from './components/NoMessages';
 
 const styles = (theme) => ({});
 
@@ -23,9 +24,10 @@ class MessagesComponent extends React.Component {
 
         return (
             <React.Fragment>
-                {messages.map((message)=>{
+                {messages.length > 0 && messages.map((message)=>{
                     return <Message message={message} />
                 })}
+                {!messages.length && <NoMessages />}
             </React.Fragment>
         );
     }
