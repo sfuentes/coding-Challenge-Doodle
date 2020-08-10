@@ -9,15 +9,6 @@ class AppContainer extends React.Component {
         tickets: PropTypes.array,
         closeTicket: PropTypes.func
     };
-
-    handleCloseTicket = (id) => {
-        this.props.closeTicket(id)
-    };
-
-    handleBlockTicket = (id) => {
-        this.props.blockTicket(id);
-    };
-
     render() {
         const {tickets} = this.props;
 
@@ -29,12 +20,11 @@ class AppContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    tickets: getNonBlockedTickets(state)
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    closeTicket: (id) => dispatch(closeTicket(id)),
-    blockTicket: (id) => dispatch(blockTicket(id))
+
 });
 
 export default connect(

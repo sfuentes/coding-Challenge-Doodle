@@ -12,7 +12,10 @@ const initialStateMessages = {
 };
 
 const messages = (state = initialStateMessages, action) => {
-
+    switch (action.type) {
+        default :
+            return state;
+    }
 };
 
 const initialStateUser = {
@@ -20,7 +23,10 @@ const initialStateUser = {
 };
 
 const user = (state = initialStateUser, action) => {
-
+    switch (action.type) {
+        default :
+            return state;
+    }
 };
 
 export default combineReducers({
