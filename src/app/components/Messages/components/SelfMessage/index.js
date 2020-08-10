@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -18,11 +18,16 @@ const useStyles = makeStyles({
     },
 
     sendDate: {
-        marginBottom: 12,
+        fontSize: '0.85rem',
         textAlign: 'right'
     },
+    content: {},
+    contentWrap: {
+        '& :last-child': {
+            paddingBottom: 0
+        }
+    }
 });
-
 
 
 export default function SelfMessage({message}) {
@@ -31,11 +36,11 @@ export default function SelfMessage({message}) {
 
     return (
         <Card className={classes.root}>
-            <CardContent>
-                <Typography variant="body" component="p">
+            <CardContent className={classes.contentWrap}>
+                <Typography variant="body" component="p" className={classes.content}>
                     {message.content}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
+                <Typography className={classes.sendDate} color="textSecondary">
                     {DateTime.fromISO(message.sendDate).toLocaleString(DateTime.DATETIME_FULL)}
                 </Typography>
             </CardContent>

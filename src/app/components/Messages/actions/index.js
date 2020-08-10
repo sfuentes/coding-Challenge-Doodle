@@ -12,7 +12,7 @@ const allMessagesLoaded = (messages) => ({
 export const fetchAllMessages = () => dispatch => new Promise((resolve) => {
 
     api.get({}).then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         dispatch(allMessagesLoaded(res.data));
         resolve(res.data);
 

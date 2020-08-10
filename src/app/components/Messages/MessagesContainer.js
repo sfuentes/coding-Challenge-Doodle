@@ -15,25 +15,26 @@ class MessagesContainer extends React.Component {
     };
 
     componentDidMount() {
-        const { loadAllMessages } = this.props;
+        const {loadAllMessages} = this.props;
 
         loadAllMessages();
     }
 
-    render() {
-        const { messages, isLoaded, currentUser } = this.props;
 
-        if(isLoaded){
+    render() {
+        const {messages, isLoaded, currentUser} = this.props;
+
+        if (isLoaded) {
             return <Messages messages={messages} currentUser={currentUser}/>
         }
-        return <CircularProgress />;
+        return <CircularProgress/>;
     }
 }
 
 const mapStateToProps = (state) => ({
     messages: state.messages.list,
-    isLoaded : !!state.messages.lastUpdated,
-    currentUser : state.user.name
+    isLoaded: !!state.messages.lastUpdated,
+    currentUser: state.user.name
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,5 +1,5 @@
 import Api from '../../../services/apiWrapper';
-import {SEND_MESSAGE, SEND_MESSAGE_SUCCESS} from '../../App/constants';
+import {SEND_MESSAGE_SUCCESS} from '../../App/constants';
 import {fetchAllMessages} from '../../Messages/actions';
 
 const api = new Api({});
@@ -14,8 +14,8 @@ export const sendMessage = (message) => (dispatch, getState) => new Promise((res
     const {name} = getState().user;
 
     api.post({
-        headers : {'content-type': 'application/json' },
-        data : {author : name || 'test', message : message }
+        headers: {'content-type': 'application/json'},
+        data: {author: name || 'test', message: message}
     }).then((res) => {
         dispatch(messageSendSuccess(res.data));
         dispatch(fetchAllMessages());

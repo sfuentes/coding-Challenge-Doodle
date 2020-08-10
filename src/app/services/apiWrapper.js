@@ -52,7 +52,7 @@ axios.interceptors.response.use(
 class api {
     constructor({basePath = config.apiPath}) {
         this.axios = axios;
-        this.basePath =  basePath;
+        this.basePath = basePath;
 
     }
 
@@ -76,10 +76,11 @@ class api {
              endpoint = '', params, headers, data, apiRoot,
          }) {
 
-        const defaultApi = apiRoot || '' ;
+        const defaultApi = apiRoot || '';
         const options = {headers: {...this.getHeaders(), ...headers}};
         return this.axios.post(`${this.basePath}${defaultApi}${endpoint}`, data, {...options, ...params});
     }
 
 }
+
 export default api;

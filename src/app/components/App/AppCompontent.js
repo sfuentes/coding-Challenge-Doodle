@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { createMuiTheme } from '@material-ui/core/styles';
+import {createMuiTheme} from '@material-ui/core/styles';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 
 import Messages from '../Messages';
@@ -11,7 +11,11 @@ import WriteMessage from '../WriteMessage';
 
 const theme = createMuiTheme({}); // needs to go to Layout
 
-const styles = ({theme}) =>{};
+const styles = () => ({
+    root: {
+        'margin-bottom': '120px'
+    }
+});
 
 class AppComponent extends React.Component {
 
@@ -24,11 +28,11 @@ class AppComponent extends React.Component {
 
         return (
             <ThemeProvider theme={theme}>
-                <Container component="main" maxWidth="md">
+                <Container component="main" maxWidth="md" className={classes.root}>
                     <CssBaseline/>
-                    <Messages />
+                    <Messages/>
 
-                    <WriteMessage />
+                    <WriteMessage/>
                 </Container>
             </ThemeProvider>
         );

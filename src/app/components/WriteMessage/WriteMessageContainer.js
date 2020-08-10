@@ -6,22 +6,22 @@ import WriteMessageComponent from './WriteMessageComponent';
 
 class WriteMessageContainer extends React.Component {
     static propTypes = {
-        sendMessage : PropTypes.func
+        sendMessage: PropTypes.func
     };
 
     render() {
         const {sendMessage} = this.props;
 
         return (
-            <WriteMessageComponent onSendMessage={sendMessage} />
+            <WriteMessageComponent onSendMessage={sendMessage}/>
         );
     }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-    sendMessage : (message)=> dispatch(sendMessage(message))
+    sendMessage: (message) => dispatch(sendMessage(message))
 });
 
 export default connect(

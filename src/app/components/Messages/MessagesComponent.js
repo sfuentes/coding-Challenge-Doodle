@@ -6,7 +6,7 @@ import Message from './components/Message';
 import NoMessages from './components/NoMessages';
 import SelfMessage from './components/SelfMessage';
 
-const styles = (theme) => ({});
+const styles = () => ({});
 
 class MessagesComponent extends React.Component {
 
@@ -21,18 +21,30 @@ class MessagesComponent extends React.Component {
         currentUser: PropTypes.string
     };
 
+    componentDidMount() {
+        this.scrollDown();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.scrollDown() // Oh dear ugly but it's late ...
+    }
+
+    scrollDown() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
     render() {
-        const {classes, messages, currentUser} = this.props;
+        const {messages, currentUser} = this.props;
 
         return (
             <React.Fragment>
-                {messages.length > 0 && messages.map((message)=> {
-                    if(currentUser === message.author){
+                {messages.length > 0 && messages.map((message) => {
+                    if (currentUser === message.author) {
                         return <SelfMessage key={message.id} message={message}/>
                     }
-                    return <Message key={message.id} message={message} />
+                    return <Message key={message.id} message={message}/>
                 })}
-                {!messages.length && <NoMessages />}
+                {!messages.length && <NoMessages/>}
             </React.Fragment>
         );
     }

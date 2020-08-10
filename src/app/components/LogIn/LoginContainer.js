@@ -6,32 +6,32 @@ import {SET_USER_NAME} from '../App/constants';
 
 class LoginContainer extends React.Component {
 
+    static propTypes = {
+        storeUsername: PropTypes.func,
+    };
+
     constructor(props) {
         super(props);
 
         this.handleUsername = this.handleUsername.bind(this);
     }
 
-    static propTypes = {
-        storeUsername: PropTypes.func,
-    };
-
-    handleUsername (name)  {
+    handleUsername(name) {
 
         this.props.storeUserName(name)
     };
 
     render() {
         return (
-            <LoginComponent handleUsername={this.handleUsername} />
+            <LoginComponent handleUsername={this.handleUsername}/>
         );
     }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-    storeUserName : (name)=> dispatch({type : SET_USER_NAME, name })
+    storeUserName: (name) => dispatch({type: SET_USER_NAME, name})
 });
 
 export default connect(

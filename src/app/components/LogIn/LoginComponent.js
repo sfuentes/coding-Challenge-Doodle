@@ -5,7 +5,15 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 
-const styles = (theme) => ({});
+const styles = () => ({
+    root: {
+        justifyContent: 'center'
+    },
+    input: {
+        maxWidth: 600,
+        minWidth: 275
+    }
+});
 
 class LoginComponent extends React.Component {
 
@@ -22,28 +30,29 @@ class LoginComponent extends React.Component {
         }
     }
 
-    onSave(event){
+    onSave(event) {
         event.preventDefault();
         this.props.handleUsername(this.state.username);
     }
 
     onInputChange(event) {
-       this.setState({username : event.target.value});
+        this.setState({username: event.target.value});
     }
 
     render() {
         const {classes} = this.props;
 
         return (
-            <Container >
-                <Paper elevation={3} >
+            <Container>
+                <Paper elevation={3}>
                     <form className={classes.root} noValidate autoComplete="off" onSubmit={::this.onSave}>
 
                         <TextField required
-                                   id="standard-required"
                                    label="Required"
                                    onChange={::this.onInputChange}
-                                   helperText="Some important text"
+                                   helperText="Please choose a Name for the Chat"
+                                   className={classes.input}
+                                   variant='outlined'
                         />
 
                     </form>

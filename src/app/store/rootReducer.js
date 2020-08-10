@@ -2,18 +2,10 @@ import {combineReducers} from 'redux';
 import {ALL_MESSAGES_SUCCESS, SET_USER_NAME} from '../components/App/constants';
 import DateTime from 'luxon/src/datetime.js'
 
-// Will be refactored later on
-
-const message = {
-    id : '',
-    content: '',
-    userKey: ''
-};
-
 const initialStateMessages = {
-    lastUpdated : null,
-    list : [],
-    knownUsers : {},
+    lastUpdated: null,
+    list: [],
+    knownUsers: {},
 };
 
 const messages = (state = initialStateMessages, action) => {
@@ -23,10 +15,10 @@ const messages = (state = initialStateMessages, action) => {
             state.lastUpdated = DateTime.local().toISO();
 
             state.list = action.messages.map((message) => ({
-                id : message._id,
-                author : message.author,
-                content : message.message,
-                sendDate : DateTime.fromMillis(message.timestamp).toISO()
+                id: message._id,
+                author: message.author,
+                content: message.message,
+                sendDate: DateTime.fromMillis(message.timestamp).toISO()
             }));
 
             return {...state};
