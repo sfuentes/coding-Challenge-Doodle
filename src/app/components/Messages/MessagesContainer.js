@@ -10,7 +10,8 @@ class MessagesContainer extends React.Component {
     static propTypes = {
         loadAllMessages: PropTypes.func,
         messages: PropTypes.array,
-        isLoaded: PropTypes.bool
+        isLoaded: PropTypes.bool,
+        currentUser: PropTypes.string
     };
 
     componentDidMount() {
@@ -20,10 +21,10 @@ class MessagesContainer extends React.Component {
     }
 
     render() {
-        const { messages, isLoaded } = this.props;
+        const { messages, isLoaded, currentUser } = this.props;
 
         if(isLoaded){
-            return <Messages messages={messages} />
+            return <Messages messages={messages} currentUser={currentUser}/>
         }
         return <CircularProgress />;
     }
@@ -32,6 +33,7 @@ class MessagesContainer extends React.Component {
 const mapStateToProps = (state) => ({
     messages: state.messages.list,
     isLoaded : !!state.messages.lastUpdated,
+    currentUser : state.user.name
 });
 
 const mapDispatchToProps = (dispatch) => ({
